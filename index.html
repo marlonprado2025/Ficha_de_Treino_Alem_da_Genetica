@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App de Treino - Marlon Prado</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #121212;
+        color: #ffffff;
+        padding: 1rem;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+      .card {
+        background: #1f1f1f;
+        border-radius: 16px;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: none;
+      }
+      .card.active {
+        display: block;
+      }
+      h2 {
+        color: #00bcd4;
+        margin-bottom: 0.5rem;
+      }
+      ul {
+        list-style: none;
+        margin-bottom: 1rem;
+      }
+      li {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        background: #292929;
+        border-radius: 8px;
+      }
+      li.feito {
+        background: #2e7d32;
+        text-decoration: line-through;
+      }
+      button {
+        background: #00bcd4;
+        color: white;
+        border: none;
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        margin: 0.2rem;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0097a7;
+      }
+      .nav-buttons {
+        text-align: center;
+        margin-top: 1rem;
+      }
+      .timer {
+        margin-top: 1rem;
+        text-align: center;
+      }
+      .timer span {
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>App de Treino - Marlon Prado</h1>
+
+    <div id="treinos"></div>
+
+    <div class="nav-buttons">
+      <button onclick="anteriorDia()">◀️ Anterior</button>
+      <button onclick="proximoDia()">Próximo ▶️</button>
+    </div>
+
+    <div class="timer">
+      <p>⏱️ Timer de Descanso: <span id="tempo">60</span> segundos</p>
+      <button onclick="startTimer()">Iniciar Descanso</button>
+    </div>
+
+    <script>
+      const ficha = [
+        {
+          titulo: "Treino A ",
+          exercicios: [
+            `Panturrilha em pé
+            Progressão de carga e drop
+             Séries: *(1x 15–20)  *(1x 10–15) *(1x 8–12)  *(1x 6–10 + 2 drop)
+             Intervalo: 1 min`,
+
+            `Panturrilha sentada
+            Pico de contração de 2 segundos e rest pause
+             Séries: *(1x10–15) *(1x8–12) *(1x6–10 + 2 rest pause)
+             Intervalo: 1 min`,
+
+            `Supino inclinado (smith ou máquina)
+            Progressão de carga e strip set com mudança de velocidade de contração
+             Séries: *(3x15–20) *(1x10–15) *(3x8–12) *(4x6–10 + strip set)
+             Intervalo: 2-3 min entre as séries`,
+
+            `Supino reto com halteres
+            Progressão de carga e drop
+             Séries: *(3x10–15) *(3x8–12) *(1x6–10 + 2 drop)
+             Intervalo: 1–2 min `,
+
+            `Supino inclinado com halteres + Crucifixo inclinado com halteres
+            Bi-set
+             Séries: *(3x8–12)
+             Intervalo: 60 seg `,
+
+            `Supino declinado
+             Séries: *(3x 8-12)
+             Intervalo: 45 seg `,
+
+            `Voador
+            FST-7
+             Séries: *(7x 10–15)
+             Intervalo: 45 seg `,
+
+            `Tríceps corda
+            Progressão de carga e drop
+             Séries: *(1x 10-15)*(1x 8-12)*(1x 6-10 + 2 drop)
+             Intervalo: 1 min `,
+
+            `Tríceps testa
+            Repetições parciais apos a falha
+             Séries: *(3x 8-12) + parciais após a falha
+             Intervalo: 1 min `,
+          ],
+        },
+        {
+          titulo: "Treino B ",
+          exercicios: [
+            `Abdominal supra na prancha
+Séries: 3x RM (máximo de repetições possíveis)
+Intervalo: 45 seg `,
+
+            `Abdominal infra na torre
+Séries: 3x RM
+Intervalo: 45 seg `,
+
+            `Remada curvada pronada
+Séries: 1x10–15, 1x8–12, 1x6–10
+Intervalo: 2–3 min
+Observação: Pico de contração de 2 seg `,
+
+            `Remada baixa pegada aberta
+Séries: 1x10–15, 1x8–12, 1x6–10
+Intervalo: 2–3 min
+Observação: Pico de contração de 2 seg`,
+
+            `Serrote (remada unilateral)
+Séries: 3x8–12
+Observação: Pico de contração de 2 seg `,
+
+            `Pulley frente pegada aberta
+Séries: 1x10–15, 1x8–12, 1x6–10 + 2 drop
+Intervalo: 90 seg
+Observação: Pico de contração de 2 seg no drop`,
+
+            `Pulley frente supinado
+Séries: 5x8–12
+Intervalo: 45 seg
+Observação: Pico de contração de 2 seg `,
+
+            `Meio terra (rack pull)
+Séries: 1x10–15, 1x8–12, 1x6–10
+Intervalo: 2–3 min `,
+
+            `Lombar no banco romano
+Séries: 5x12
+Intervalo: 45 seg `,
+
+            `Rosca Scott (máquina ou cross)
+Séries: 5x12
+Intervalo: 45 seg
+Observação: Pico de contração de 2 seg `,
+          ],
+        },
+        {
+          titulo: "Treino C ",
+          exercicios: [` `, ` `, ` `, ` `, ` `, ` `, ` `, ` `],
+        },
+        {
+          titulo: "Treino D ",
+          exercicios: [` `, ` `, ` `, ` `, ` `, ` `, ` `, ` `],
+        },
+        {
+          titulo: "Treino E ",
+          exercicios: [` `, ` `, ` `, ` `, ` `, ` `, ` `, ` `],
+        },
+      ];
+
+      const treinosEl = document.getElementById("treinos");
+      let diaAtual = 0;
+
+      function renderTreinos() {
+        treinosEl.innerHTML = "";
+        ficha.forEach((dia, index) => {
+          const card = document.createElement("div");
+          card.className = "card" + (index === diaAtual ? " active" : "");
+          const titulo = document.createElement("h2");
+          titulo.innerText = dia.titulo;
+          const ul = document.createElement("ul");
+          dia.exercicios.forEach((ex, idx) => {
+            const li = document.createElement("li");
+            li.innerText = ex;
+            li.onclick = () => {
+              li.classList.toggle("feito");
+              salvarEstado();
+            };
+            if (estaFeito(dia.titulo, idx)) li.classList.add("feito");
+            ul.appendChild(li);
+          });
+          card.appendChild(titulo);
+          card.appendChild(ul);
+          treinosEl.appendChild(card);
+        });
+      }
+
+      function proximoDia() {
+        diaAtual = (diaAtual + 1) % ficha.length;
+        renderTreinos();
+      }
+
+      function anteriorDia() {
+        diaAtual = (diaAtual - 1 + ficha.length) % ficha.length;
+        renderTreinos();
+      }
+
+      function salvarEstado() {
+        const data = {};
+        document.querySelectorAll(".card").forEach((card, diaIndex) => {
+          const key = ficha[diaIndex].titulo;
+          data[key] = [];
+          card.querySelectorAll("li").forEach((li, i) => {
+            data[key][i] = li.classList.contains("feito");
+          });
+        });
+        localStorage.setItem("progressoTreino", JSON.stringify(data));
+      }
+
+      function estaFeito(titulo, index) {
+        const data = JSON.parse(localStorage.getItem("progressoTreino")) || {};
+        return data[titulo]?.[index];
+      }
+
+      function startTimer() {
+        let tempo = 60;
+        const span = document.getElementById("tempo");
+        span.innerText = tempo;
+        const intervalo = setInterval(() => {
+          tempo--;
+          span.innerText = tempo;
+          if (tempo <= 0) clearInterval(intervalo);
+        }, 1000);
+      }
+
+      renderTreinos();
+    </script>
+  </body>
+</html>
