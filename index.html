@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>App de Treino - Marlon Prado</title>
+    <title>Treino ABCD - Marlon Prado</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <h1>Treino ABCD - Marlon Prado</h1>
+    
+    <h1><img src="src/dumbbell.png"/> Ficha de Treino ABCDE - Marlon Prado</h1>
 
     <div class="tabs">
       <button class="tab active" onclick="selectTreino(0)">Treino A</button>
@@ -22,8 +23,8 @@
     <div id="treinos"></div>
 
     <div class="timer" id="timer">
-      <button class="timer-toggle" onclick="toggleTimer()">⏱️ </button>
-      <p>Timer de Descanso: <span id="tempo">00:00</span></p>
+      <button class="timer-toggle"  onclick="toggleTimer()">⏱️ ►</button>
+      <p><span id="tempo">00:00</span></p>
       <div class="timer-buttons">
         <button onclick="startPauseTimer()">Iniciar</button>
         <button onclick="resetTimer()">Zerar</button>
@@ -35,98 +36,123 @@
         {
           titulo: "Treino A ",
           exercicios: [
-            `Panturrilha em pé
-            Progressão de carga e drop
+            `⚪ Panturrilha em pé
+
+             Progressão de carga e drop
              Séries: *(1x 15–20)  *(1x 10–15) *(1x 8–12)  *(1x 6–10 + 2 drop)
-             Intervalo: 1 min`,
+             ⏱️ 1 min`,
 
-            `Panturrilha sentada
-            Pico de contração de 2 segundos e rest pause
+            `⚪ Panturrilha sentada
+
+             Pico de contração de 2 segundos e rest pause
              Séries: *(1x10–15) *(1x8–12) *(1x6–10 + 2 rest pause)
-             Intervalo: 1 min`,
+             ⏱️  1 min`,
 
-            `Supino inclinado (smith ou máquina)
-            Progressão de carga e strip set com mudança de velocidade de contração
+            `⚪ Supino inclinado (smith ou máquina)
+
+             Progressão de carga e strip set com mudança de velocidade de contração
              Séries: *(3x15–20) *(1x10–15) *(3x8–12) *(4x6–10 + strip set)
-             Intervalo: 2-3 min entre as séries`,
+             ⏱️  2-3 min entre as séries`,
 
-            `Supino reto com halteres
+            `⚪ Supino reto com halteres
+
             Progressão de carga e drop
              Séries: *(3x10–15) *(3x8–12) *(1x6–10 + 2 drop)
-             Intervalo: 1–2 min `,
+             ⏱️ 1–2 min `,
 
-            `Supino inclinado com halteres + Crucifixo inclinado com halteres
+            `⚪ Supino inclinado com halteres + Crucifixo inclinado com halteres
+
             Bi-set
              Séries: *(3x8–12)
-             Intervalo: 60 seg `,
+             ⏱️ 60 seg `,
 
-            `Supino declinado
+            `⚪ Supino declinado
+
              Séries: *(3x 8-12)
-             Intervalo: 45 seg `,
+             ⏱️ 45 seg `,
 
-            `Voador
+            `⚪ Voador
+
             FST-7
              Séries: *(7x 10–15)
-             Intervalo: 45 seg `,
+             ⏱️ 45 seg `,
 
-            `Tríceps corda
+            `⚪ Tríceps corda
+
             Progressão de carga e drop
              Séries: *(1x 10-15)*(1x 8-12)*(1x 6-10 + 2 drop)
-             Intervalo: 1 min `,
+             ⏱️ 1 min `,
 
-            `Tríceps testa
+            `⚪ Tríceps testa
+
             Repetições parciais apos a falha
              Séries: *(3x 8-12) + parciais após a falha
-             Intervalo: 1 min `,
+             ⏱️ 1 min `,
           ],
         },
         {
           titulo: "Treino B ",
           exercicios: [
-            `Abdominal supra na prancha
-Séries: 3x RM (máximo de repetições possíveis)
-Intervalo: 45 seg `,
+            `⚪ Abdominal supra na prancha
 
-            `Abdominal infra na torre
-Séries: 3x RM
-Intervalo: 45 seg `,
+              Séries: 3x RM (máximo de repetições possíveis)
+              ⏱️  45 seg `,
 
-            `Remada curvada pronada
-Séries: 1x10–15, 1x8–12, 1x6–10
-Intervalo: 2–3 min
-Observação: Pico de contração de 2 seg `,
+            `⚪ Abdominal infra na torre
 
-            `Remada baixa pegada aberta
-Séries: 1x10–15, 1x8–12, 1x6–10
-Intervalo: 2–3 min
-Observação: Pico de contração de 2 seg`,
+              Séries: 3x RM
+              ⏱️ 45 seg `,
 
-            `Serrote (remada unilateral)
-Séries: 3x8–12
-Observação: Pico de contração de 2 seg `,
+            `⚪ Remada curvada pronada
 
-            `Pulley frente pegada aberta
-Séries: 1x10–15, 1x8–12, 1x6–10 + 2 drop
-Intervalo: 90 seg
-Observação: Pico de contração de 2 seg no drop`,
+            Pico de contração de 2 seg
+              Séries: 1x10–15, 1x8–12, 1x6–10
+              ⏱️  2–3 min
+               `,
 
-            `Pulley frente supinado
-Séries: 5x8–12
-Intervalo: 45 seg
-Observação: Pico de contração de 2 seg `,
+            `⚪ Remada baixa pegada aberta
 
-            `Meio terra (rack pull)
-Séries: 1x10–15, 1x8–12, 1x6–10
-Intervalo: 2–3 min `,
+            Pico de contração de 2 seg
+              Séries: 1x10–15, 1x8–12, 1x6–10
+              ⏱️  2–3 min
+             `,
 
-            `Lombar no banco romano
-Séries: 5x12
-Intervalo: 45 seg `,
+            `⚪ Serrote (remada unilateral)
 
-            `Rosca Scott (máquina ou cross)
-Séries: 5x12
-Intervalo: 45 seg
-Observação: Pico de contração de 2 seg `,
+            Pico de contração de 2 seg
+              Séries: 3x8–12
+               `,
+
+            `⚪ Pulley frente pegada aberta
+
+            Pico de contração de 2 seg no Drop
+              Séries: 1x10–15, 1x8–12, 1x6–10 + 2 drop
+              ⏱️ 90 seg
+              `,
+
+            `⚪ Pulley frente supinado
+
+              Pico de contração de 2 seg
+              Séries: 5x8–12
+              ⏱️ 45 seg
+              `,
+
+            `⚪ Meio terra (rack pull)
+
+              Séries: 1x10–15, 1x8–12, 1x6–10
+              ⏱️ 2–3 min`,
+
+            `⚪ Lombar no banco romano
+
+              Séries: 5x12
+              ⏱️ 45 seg`,
+
+            `⚪ Rosca Scott (máquina ou cross)
+
+              Pico de contração de 2 seg
+              Séries: 5x12
+              ⏱️ 45 seg
+              `,
           ],
         },
         {
@@ -234,7 +260,7 @@ Observação: Pico de contração de 2 seg `,
         const timer = document.getElementById("timer");
         timer.classList.toggle("retraido");
         const toggleButton = timer.querySelector(".timer-toggle");
-        toggleButton.textContent = timer.classList.contains("retraido") ? "⏱️►" : "⏱️◄";
+        toggleButton.textContent = timer.classList.contains("retraido") ? "⏱️◄":"⏱️►" ;
       }
 
       renderTreinos();
