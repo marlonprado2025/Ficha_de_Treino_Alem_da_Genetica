@@ -18,13 +18,16 @@
       <button class="tab" onclick="selectTreino(4)">Treino E</button>
     </div>
 
+   
     <div id="treinos"></div>
 
     <div class="timer" id="timer">
-      <button class="timer-toggle" onclick="toggleTimer()">⏱️</button>
-      <div class="name-timer"><p>Timer de Descanso: <span id="tempo">00:00</span></p></div>
-      <button onclick="startPauseTimer()">Iniciar</button>
-      <button onclick="resetTimer()">Zerar</button>
+      <button class="timer-toggle" onclick="toggleTimer()">⏱️ </button>
+      <p>Timer de Descanso: <span id="tempo">00:00</span></p>
+      <div class="timer-buttons">
+        <button onclick="startPauseTimer()">Iniciar</button>
+        <button onclick="resetTimer()">Zerar</button>
+      </div>
     </div>
 
     <script>
