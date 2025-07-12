@@ -4,89 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App de Treino - Marlon Prado</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: #121212;
-        color: #ffffff;
-        padding: 1rem;
-      }
-      h1 {
-        text-align: center;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-      }
-      .card {
-        background: #1f1f1f;
-        border-radius: 16px;
-        padding: 1rem;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        display: none;
-      }
-      .card.active {
-        display: block;
-      }
-      h2 {
-        color: #00bcd4;
-        margin-bottom: 0.5rem;
-      }
-      ul {
-        list-style: none;
-        margin-bottom: 1rem;
-      }
-      li {
-        margin-bottom: 0.5rem;
-        padding: 0.5rem;
-        background: #292929;
-        border-radius: 8px;
-      }
-      li.feito {
-        background: #2e7d32;
-        text-decoration: line-through;
-      }
-      button {
-        background: #00bcd4;
-        color: white;
-        border: none;
-        padding: 0.6rem 1rem;
-        border-radius: 8px;
-        margin: 0.2rem;
-        cursor: pointer;
-      }
-      button:hover {
-        background: #0097a7;
-      }
-      .nav-buttons {
-        text-align: center;
-        margin-top: 1rem;
-      }
-      .timer {
-        margin-top: 1rem;
-        text-align: center;
-      }
-      .timer span {
-        font-size: 1.2rem;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
-    <h1>App de Treino - Marlon Prado</h1>
+    <h1>Treino ABCD - Marlon Prado</h1>
+
+    <div class="tabs">
+      <button class="tab active" onclick="selectTreino(0)">Treino A</button>
+      <button class="tab" onclick="selectTreino(1)">Treino B</button>
+      <button class="tab" onclick="selectTreino(2)">Treino C</button>
+      <button class="tab" onclick="selectTreino(3)">Treino D</button>
+      <button class="tab" onclick="selectTreino(4)">Treino E</button>
+    </div>
 
     <div id="treinos"></div>
 
-    <div class="nav-buttons">
-      <button onclick="anteriorDia()">◀️ Anterior</button>
-      <button onclick="proximoDia()">Próximo ▶️</button>
-    </div>
-
-    <div class="timer">
-      <p>⏱️ Timer de Descanso: <span id="tempo">60</span> segundos</p>
-      <button onclick="startTimer()">Iniciar Descanso</button>
+    <div class="timer" id="timer">
+      <button class="timer-toggle" onclick="toggleTimer()">⏱️</button>
+      <div class="name-timer"><p>Timer de Descanso: <span id="tempo">00:00</span></p></div>
+      <button onclick="startPauseTimer()">Iniciar</button>
+      <button onclick="resetTimer()">Zerar</button>
     </div>
 
     <script>
@@ -204,6 +142,9 @@ Observação: Pico de contração de 2 seg `,
 
       const treinosEl = document.getElementById("treinos");
       let diaAtual = 0;
+      let timerInterval = null;
+      let isTimerRunning = false;
+      let tempoTotal = 0;
 
       function renderTreinos() {
         treinosEl.innerHTML = "";
@@ -227,15 +168,15 @@ Observação: Pico de contração de 2 seg `,
           card.appendChild(ul);
           treinosEl.appendChild(card);
         });
+
+        // Atualizar estado das abas
+        document.querySelectorAll(".tab").forEach((tab, index) => {
+          tab.classList.toggle("active", index === diaAtual);
+        });
       }
 
-      function proximoDia() {
-        diaAtual = (diaAtual + 1) % ficha.length;
-        renderTreinos();
-      }
-
-      function anteriorDia() {
-        diaAtual = (diaAtual - 1 + ficha.length) % ficha.length;
+      function selectTreino(index) {
+        diaAtual = index;
         renderTreinos();
       }
 
@@ -256,15 +197,41 @@ Observação: Pico de contração de 2 seg `,
         return data[titulo]?.[index];
       }
 
-      function startTimer() {
-        let tempo = 60;
-        const span = document.getElementById("tempo");
-        span.innerText = tempo;
-        const intervalo = setInterval(() => {
-          tempo--;
-          span.innerText = tempo;
-          if (tempo <= 0) clearInterval(intervalo);
-        }, 1000);
+      function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }
+
+      function startPauseTimer() {
+        const button = document.querySelector('button[onclick="startPauseTimer()"]');
+        if (isTimerRunning) {
+          clearInterval(timerInterval);
+          isTimerRunning = false;
+          button.textContent = "Iniciar";
+        } else {
+          isTimerRunning = true;
+          button.textContent = "Pausar";
+          timerInterval = setInterval(() => {
+            tempoTotal++;
+            document.getElementById("tempo").textContent = formatTime(tempoTotal);
+          }, 1000);
+        }
+      }
+
+      function resetTimer() {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        tempoTotal = 0;
+        document.getElementById("tempo").textContent = formatTime(tempoTotal);
+        document.querySelector('button[onclick="startPauseTimer()"]').textContent = "Iniciar";
+      }
+
+      function toggleTimer() {
+        const timer = document.getElementById("timer");
+        timer.classList.toggle("retraido");
+        const toggleButton = timer.querySelector(".timer-toggle");
+        toggleButton.textContent = timer.classList.contains("retraido") ? "⏱️►" : "⏱️◄";
       }
 
       renderTreinos();

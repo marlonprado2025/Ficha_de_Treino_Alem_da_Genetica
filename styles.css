@@ -1,0 +1,118 @@
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #121212;
+        color: #ffffff;
+        padding: 1rem;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+      .tabs {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 5px;
+        max-width: 100%;
+      }
+      .tab {
+        background: #1f1f1f;
+        color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        padding: 0.6rem 1rem;
+        margin: 0 0.2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .tab.active {
+        background: #20ee04;
+        color: #121212;
+        font-weight: 700 ;
+      }
+      .tab:hover {
+        background: #107203af;
+      }
+      .card {
+        background: #1f1f1f;
+        border-radius: 16px;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: none;
+      }
+      .card.active {
+        display: block;
+      }
+      h2 {
+        color: #d40000;
+        margin-bottom: 0.5rem;
+        font-weight: 900;
+      }
+      ul {
+        list-style: none;
+        margin-bottom: 1rem;
+      }
+      li {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        background: #292929;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+      li.feito {
+        background: #2e7d32;
+        text-decoration: line-through;
+      }
+      .timer {
+        position: fixed;
+        width: 300px;
+        bottom: 20px;
+        right: 10px;
+        background: rgb(45, 125, 11);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(192, 201, 8, 0.331);
+        transition: transform 0.3s ease;
+        z-index: 1000;      
+    }
+      .timer.retraido {
+        transform: translateX(calc(100% - 0px));
+      }
+      .timer-toggle {
+        
+        position: absolute;
+        left: -65px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #3498db;
+        color: rgb(255, 255, 255);
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+       
+      }
+      .timer p {
+        margin: 0 0 10px 0;
+        font-size: 20px;
+        font-weight: 700 ;
+      }
+      .timer button {
+        padding: 8px 12px;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        width: 70px;
+        border-radius: 4px;
+        background: #eeee2a;
+        color: rgb(9, 9, 0);
+      }
+      .timer button:hover {
+        background: #36ed22;
+      }
