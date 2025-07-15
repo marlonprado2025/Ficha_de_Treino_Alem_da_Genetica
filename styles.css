@@ -160,14 +160,14 @@ li.feito {
     }
 
     h1 {
-        font-size: 1rem;
+        font-size: 14px;
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
         border-radius: 4px;
-        background: #1f1f1f;
+        background: #2e2d2d;
     }
 
     img {
