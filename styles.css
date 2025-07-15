@@ -14,7 +14,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 p {
@@ -111,12 +111,11 @@ li.feito {
     left: -50px;
     top: 50%;
     transform: translateY(-50%);
-    background: #3498db;
     color: rgb(255, 255, 255);
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 4px 0 0 4px;
+    border-radius: 5px 0 0 5px;
     font-size: 1rem;
 }
 
@@ -134,13 +133,13 @@ li.feito {
 }
 
 .timer button {
-    padding: 1px 12px;
+    padding: 5px 12px;
     font-weight: 700;
     cursor: pointer;
     border: none;
-    width: 70px;
+    width: 80px;
     border-radius: 4px;
-    background: #eeee2a;
+    background: rgba(219, 248, 34, 0.822);
     color: rgb(9, 9, 0);
 }
 
@@ -161,7 +160,7 @@ li.feito {
     }
 
     h1 {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
@@ -239,10 +238,13 @@ li.feito {
     }
 
     .timer button {
-        width: 60px;
-        padding: 6px 10px;
-        font-size: 0.9rem;
-        border-radius: 15px;
+        height: 30px;
+        width: 70px;
+        padding: 10px 12px;
+        font-size: 0.8rem;
+        border-radius: 12px;
+        font-weight: 700;
+        text-align: center;
     }
 
     .timer-toggle {
@@ -250,6 +252,12 @@ li.feito {
         padding: 4px 8px;
         font-size: 0.9rem;
     }
+   button.timer-toggle {
+       left: -40px;
+       padding: 4px 8px;
+       height: 45px;
+
+   }
 }
 
 @media (max-width: 400px) {
@@ -275,7 +283,8 @@ li.feito {
 
     .timer button {
         width: 50px;
-        padding: 5px 8px;
+        padding: 8px 10px;
         font-size: 0.8rem;
+        text-align: center;
     }
 }
