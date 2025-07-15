@@ -287,4 +287,9 @@ li.feito {
         font-size: 0.8rem;
         text-align: center;
     }
+    h1{
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+    }
 }
