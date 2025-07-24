@@ -53,7 +53,7 @@ p {
 
     0%,
     100% {
-        transform: translateY(1px);
+        transform: translateY(2px);
     }
 
     50% {
@@ -154,12 +154,12 @@ li.feito {
     border: none;
     width: 80px;
     border-radius: 4px;
-    background: rgba(219, 248, 34, 0.822);
+    background: rgba(220, 248, 34, 0.596);
     color: rgb(9, 9, 0);
 }
 
 .timer button:hover {
-    background: #196710b4;
+    background: #1967105e;
 }
 
 #tempo {
@@ -239,7 +239,7 @@ li.feito {
         max-width: 350px;
         height: 150px;
         bottom: 400px;
-        right: 10px;
+        right: 20px;
         padding: 8px;
         border-radius: 15px;
     }
@@ -249,16 +249,14 @@ li.feito {
     }
 
     .timer-buttons {
-        gap: 35px;
+        gap: 45px;
     }
 
     .timer button {
-        height: 30px;
-        width: 70px;
-        
-        font-size: 0.8rem;
+        height: 50px;
+        font-size: 1rem;
         border-radius: 12px;
-        font-weight: 700;
+        font-weight: 900;
         text-align: center;
     }
 
@@ -270,7 +268,7 @@ li.feito {
    button.timer-toggle {
        left: -40px;
        padding: 4px 8px;
-       height: 45px;
+       height: 100px;
 
    }
 }
@@ -297,10 +295,11 @@ li.feito {
     }
 
     .timer button {
-        width: 50px;
-       padding: 3px 6px;
-        font-size: 0.8rem;
+        width: 70px;
+        padding: 3px 6px;
+        font-size: 1.2rem;
         text-align: center;
+        left: -40px;
     }
     h1{
         font-size: 12px;
