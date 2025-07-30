@@ -262,7 +262,6 @@ li.feito {
     }
 
     .timer-toggle {
-        left: -40px;
         padding: 4px 8px;
         font-size: 0.9rem;
     }
@@ -295,12 +294,15 @@ li.feito {
     }
 
     .timer button {
-        width: 70px;
-        padding: 3px 6px;
-        font-size: 1.2rem;
+        width: 85px;
+        padding: 3px 0px;
+        font-size: 1.1rem;
         text-align: center;
         left: -40px;
     }
+     button.timer-toggle {
+       left: -50px;
+   }
     h1{
         font-size: 12px;
         font-weight: 700;
