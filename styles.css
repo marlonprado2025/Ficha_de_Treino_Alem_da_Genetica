@@ -160,6 +160,7 @@ li.feito {
 
 .timer button:hover {
     background: #1967105e;
+    text-align: center;
 }
 
 #tempo {
@@ -256,7 +257,7 @@ li.feito {
         height: 50px;
         font-size: 1rem;
         border-radius: 12px;
-        font-weight: 900;
+        font-weight: 1000;
         text-align: center;
     }
 
@@ -268,8 +269,7 @@ li.feito {
    button.timer-toggle {
        left: -40px;
        padding: 4px 8px;
-       height: 100px;
-
+       height: 150px;
    }
 }
 
