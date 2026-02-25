@@ -3,27 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Periodizacao 5x Semana-Avançado</title>
+    <title>Periodizacao Upper/Lower</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    
-    <h1><img src="src/dumbbell.png"/> Ficha de Treino ABCDE - Marlon Prado</h1>
+    <h1>
+      <img src="src/dumbbell.png" /> Periodizacao Upper/Lower - Marlon Prado
+    </h1>
 
     <div class="tabs">
-      <button class="tab active" onclick="selectTreino(0)">Treino A</button>
+      <button class="tab active" onclick="selectTreino(0)">Treino A </button>
       <button class="tab" onclick="selectTreino(1)">Treino B</button>
-      <button class="tab" onclick="selectTreino(2)">Treino C</button>
-      <button class="tab" onclick="selectTreino(3)">Treino D</button>
-      <button class="tab" onclick="selectTreino(4)">Treino E</button>
+      <button class="tab" onclick="selectTreino(2)">Descanço</button>
+      <button class="tab" onclick="selectTreino(3)">Treino A</button>
+      <button class="tab" onclick="selectTreino(4)">Treino B</button>
     </div>
 
-   
     <div id="treinos"></div>
 
     <div class="timer" id="timer">
-      <button class="timer-toggle"  onclick="toggleTimer()">⏱️ ►</button>
+      <button class="timer-toggle" onclick="toggleTimer()">⏱️ ►</button>
       <p><span id="tempo">00:00</span></p>
       <div class="timer-buttons">
         <button onclick="startPauseTimer()">Iniciar</button>
@@ -34,320 +34,280 @@
     <script>
       const ficha = [
         {
-          titulo: "Treino A ",
-          exercicios: [
-            `⚪ Panturrilha em pé
-
-             Progressão de carga e Drop
-             Séries: *(1x 15–20)  *(1x 10–15) *(1x 8–12)  
-             *(1x 6–10 + 2 Drop)
-             ⏱️ 1 min`,
-
-            `⚪ Panturrilha sentada
-
-             Pico de contração de 2 seg e Rest pause
-             Séries: *(1x10–15) *(1x8–12) 
-             *(1x6–10 + 2 Rest pause)
-             ⏱️  1 min`,
-
-            `⚪ Supino inclinado (smith ou máquina)
-
-             Progressão de carga e Strip set com mudança de velocidade de contração
-             Séries: *(1x 15–20) *(1x 10–15) *(3x 8–12) 
-             *(1x 6–10 + Strip set com mudança de velocidade de contração)
-             ⏱️  2-3 min entre as séries`,
-
-            `⚪ Supino reto com halteres
-
-            Progressão de carga e Drop
-             Séries: *(1x10–15) *(1x8–12) 
-             *(1x6–10 + 2 Drop)
-             ⏱️ 1–2 min `,
-
-            `⚪ Supino inclinado com halteres + Crucifixo inclinado com halteres
-
-            Bi-set
-             Séries: *(3x 8–12)
-             ⏱️ 1 min `,
-
-            `⚪ Supino Declinado
-
-             Séries: *(3x 8-12)
-             ⏱️ 45 seg `,
-
-            `⚪ Voador
-
-            FST-7
-             Séries: *(7x 10–15)
-             ⏱️ 45 seg `,
-
-            `⚪ Tríceps corda
-
-            Progressão de carga e Drop
-             Séries: *(1x 10-15)*(1x 8-12)
-             *(1x 6-10 + 2 Drop)
-             ⏱️ 1 min `,
-
-            `⚪ Tríceps testa
-
-            Repetições parciais apos a falha
-             Séries: *(3x 8-12) + parciais após a falha
-             ⏱️ 1 min `,
-          ],
-        },
-        {
-          titulo: "Treino B ",
+          titulo: "Treino A 1 ",
           exercicios: [
             `⚪ Abdominal supra na prancha
 
               Séries: 3x RM (máximo de repetições possíveis)
               ⏱️  45 seg `,
 
-            `⚪ Abdominal infra na torre
+            `⚪ Supino Inclinado
 
-              Séries: 3x RM (máximo de repetições possíveis)
-              ⏱️ 45 seg `,
+             Progressão de carga 
+             Séries: *(1x 15–20) *(1x 10–15) 
+             *(2x 8–12) 
+             *(1x 6–8)
+             ⏱️  1-2 min entre as séries`,
+
+            `⚪ Supino Reto 
+
+            Progressão de carga 
+             Séries: *(1x10–15) *(1x8–12) 
+             *(2x 6–10)
+             ⏱️ 1–2 min `,
 
             `⚪ Remada curvada pronada
 
             Progressão de carga
-              Séries: 1x 15-20, 1x 10-151x 8-12, 1x 6-10
-              ⏱️  2–3 min
+              Séries: 1x 15-20, 1x 10-15 
+              1x 8-12, 1x 6-10
+              ⏱️  2–3 min`,
+
+            `⚪ Pulley Triângulo
+
+            Contração de pico
+             Séries: *(3x 8-12)
+             ⏱️ 45 seg `,
+
+            `⚪Elevação Lateral Sentado
+
+            Repetições parciais após a falha
+            Séries: 4x 8-12
+             ⏱️ 45 seg`,
+
+            `⚪ Desenvolvimento
+
+             Séries: *(1x 10-15)*(1x 8-12)
+             *(2x 6-10 )
+             ⏱️ 60 seg `,
+
+            `⚪ Rosca direta cabo
+
+            Progressão de carga e Drop
+             Séries: *(1x 10-15)*(1x 8-12)
+             *(1x 6-10 + 2 Drop)
+             ⏱️ 1 min `,
+
+            `⚪ Scott máquina
+            
+             Séries: *(3x 8-12) 
+             ⏱️ 1 min `,
+
+            `⚪ Bíceps  no banco 45° com Halter
+            
+             Séries: *(3x 8-12) 
+             ⏱️ 1 min `,
+
+            `⚪ Tríceps frances no cabo
+            
+             Séries: *(3x 8-12) 
+             ⏱️ 1 min `,
+
+            `⚪ Tríceps Testa
+            
+             Séries: *(3x 8-12) 
+             ⏱️ 1 min `,
+          ],
+        },
+        {
+          titulo: "Treino B 1 ",
+          exercicios: [
+            `⚪ Lombar no banco romano
+
+              Séries: 3x RM (máximo de repetições possíveis)
+              ⏱️ 45 seg `,
+
+            `⚪ Panturrilha em pé
+
+            Progressão de carga
+              Séries: 1x 15-20, 1x 10-15 
+              1x 8-12, 1x 6-10
+              ⏱️  1–2 min
                `,
 
-            `⚪ Remada baixa pegada aberta
+            `⚪ Panturrilha sentada
 
-            Progressão de carga e Pico de contração de 2 seg
-              Séries: 1x10–15, 1x8–12, 1x6–10
-              ⏱️  2–3 min
-             `,
+             Progressão de carga e Pico de contração de 2 seg 
+             Séries: 1x 10–15   1x 8–12   1x 6–10
+             ⏱️  1 min`,
 
-            `⚪ Serrote (remada unilateral)
+            `⚪ Cadeira extenssora
 
-            Pico de contração de 2 seg
-              Séries: 3x 8–12
-              ⏱️ 1 min
-               `,
+            Progressão de carga, Pico de contração de 2 seg e Drop
+              Séries: 2x 15–20 ⏱️ 30 seg *Pc 2 seg
+              2x 10-15
+              1x 8-12 + 2 Drop
+              ⏱️ 1 min`,
 
-            `⚪ Pulley frente pegada aberta
+            `⚪ Agachamento Livre/Smith
 
-           Progressão de carga, Pico de contração de 2 seg e Drop
-              Séries: 1x10–15, 1x8–12, 1x6–10 + 2 Drop
-              ⏱️ 90 seg
+            Progressão de carga
+              Séries: 1x 10-15, 1x 10–12, 
+              1x 6–10
+              ⏱️ 2-3 min
               `,
 
-            `⚪ Pulley frente supinado
+            `⚪ Leg 45°
+
+              10 parciais apos a falha
+              Séries: 3x 10-12
+              ⏱️ 2-3 min
+              `,
+
+            `⚪ Cadeira Flexora
 
               Pico de contração de 2 seg
-              Séries: 3x 8–12
-              ⏱️ 45 seg
+              Séries: 4x 8-12
+              ⏱️ 60 seg
               `,
-
-            `⚪ Meio terra (rack pull)
-
-              Progressão de carga
-              Séries: 1x10–15, 1x8–12, 2x 6–10
-              ⏱️ 2–3 min`,
-
-            `⚪ Lombar no banco romano
+            `⚪ Flexora em pé
 
               Séries: 3x 8–12
               ⏱️ 45 seg`,
 
-            `⚪ Rosca Scott (máquina ou cross)
+            `⚪ Elevaçao Pelvica
 
-              Pico de contração de 2 seg
-              Séries: 5x 8-12
-              ⏱️ 45 seg
-              `,
+              Séries: 3x 8–12
+              ⏱️ 60 seg`,
           ],
         },
         {
-          titulo: "Treino C ",
-          exercicios: [` 
-          ⚪ Agachamento Livre
-          
-          Progressão de carga
-          Séries: 3x 8-12
-          ⏱️ 2-3 min`, 
-
-          `⚪ Leg 45° 
-          
-          10 repetições parciais após a falha
-          Séries: 4x 8-12
-          ⏱️ 90 seg
-          `, 
-          `⚪ Cadeira Extenssora 
-          
-          Pico de contração de 2 seg
-
-          Séries: *(2x 15-20) ⏱️ 30 seg
-          *(2x 8-12) ⏱️ 90 seg
-          *(1x 6-10 + 3 Drops
-          `, 
-
-          `⚪  Flexor Deitado
-          
-          Progressão de carga e Rest pause
-
-          Séries: *(1x 15–20) *(1x 10–15) *(1x 8–12) 
-          *(2x 6–10 + 2 Rest pause)
-          ⏱️ 1-2 min
-          `, 
-
-          `⚪  Flexor Sentado
-
-          Séries: 5x 10-15
-          ⏱️ 45 seg
-          `, 
-
-          `⚪ Elevação de Quadril
-
-          Pico de contração de 2 seg
-          Séries: 3x 10-15
-          ⏱️ 1 min
-          `, 
-
-          `⚪ Adutor + Abdutor
-          
-          Bi-set Pico de contração de 2 seg
-          Séries: 3x 10-15
-          ⏱️ 45 seg
-          `, 
-          ],
+          titulo: " Descanço ",
         },
         {
-          titulo: "Treino D ",
+          titulo: "Treino A 2",
           exercicios: [
-            `⚪ Panturrilha em pé
+            `⚪ Voador
 
             Progressão de carga e Drop
-
-            Séries: 1x 15-20, 1x 10-15, 1x 8-12, 
-            1x 6-10 + 2 Drop
+            Séries: 1x 15-20, 1x 10-15,
+            1x 8-12, 1x 6-10 + 2 Drop
             ⏱️ 1 min
-             `, 
+             `,
 
-            `⚪ Panturrilha Sentado
+            `⚪ Supino Declinado
 
-            Pico de contração de 2 segundos e Rest pause
+            Progressão de carga
             Séries: 1x 15-20, 1x 10-15, 1x 8-12, 
-            1x 6-10 + 2 Rest pause
+            1x 6-10 
             ⏱️ 2 min
-            `, 
+            `,
 
-            `⚪ Desenvolvimento com Halteres
+            `⚪ Serrote
 
-            Progressão de carga e Drop
-            Séries: 1x 15-20, 1x 10-15, 1x 8-12, 
-            1x 6-10 + 2 Drop
+            Progressão de carga 
+            Séries: 1x 15-20, 1x 10-15, 
+            1x 8-12
+            1x 6-10 
             ⏱️ 2-3 min
-             `, 
+             `,
 
-            `⚪  Elevação Frontal corda na polia
+            `⚪  Pulley frente aberto
 
-            Progressão de carga e Drop
+            Progressão de carga e Pico de contração de 2 seg
+            Séries: 1x 10-15, 1x 8-12, 
+            1x 6-10 
+            ⏱️ 1 min
+             `,
+
+            `⚪ Elevação Frontal corda na polia
+
+           Progressão de carga e Drop
             Séries: 1x 10-15, 1x 8-12, 
             1x 6-10 + 2 Drop
             ⏱️ 1 min
-             `, 
-
-            `⚪ Elevação Lateral Sentado
-
-            Repetições parciais após a falha
-            Séries: 3x 8-12
-            ⏱️ 45 seg
              `,
 
-            `⚪  Elevação Lateral + Remada Alta com Barra
+            `⚪  Crucifixo invertido/Voador Inverso
           
-            Bi-set
-            Series: 3x 8-12
+            Series: 4x 8-12
             ⏱️ 1 min
-          
-             `, 
+             `,
 
-            ` ⚪ Elevação Lateral Unilateral no Cabo
+            `⚪ Tríceps frances no cabo
 
-            Pico de contração de 2 seg
+            Progressão de carga e Drop
             Séries: 3x 8-12
             ⏱️ 45 seg
               `,
 
-            `⚪  Voador Inverso
+            `⚪ Tríceps Testa
+            
+             Séries: *(3x 8-12) 
+             ⏱️ 1 min `,
 
+            `⚪ Tríceps corda
+            
+             Séries: *(3x 8-12) 
+             ⏱️ 1 min `,
+
+            ` ⚪ Bíceps corda
+
+            Progressão de carga e Drop
             Séries: 3x 8-12
             ⏱️ 45 seg
-              `
-            ],
+              `,
+
+            `⚪  Scott máquina
+            
+             Séries: *(3x 8-12) 
+             ⏱️ 1 min `,
+          ],
         },
         {
-          titulo: "Treino E ",
+          titulo: "Treino B 2",
           exercicios: [
-            ` ⚪ Abdominal Supra na Prancha
+            ` ⚪ Abdominal infra na torre
 
             Séries: 3x RM (máximo de repetições possíveis)
             ⏱️  45 seg `,
 
-             ` ⚪ Abdominal infra na torre
+            `⚪ Panturrilha em pé
 
-            Séries: 3x RM (máximo de repetições possíveis)
-            ⏱️  45 seg `,
+            Progressão de carga
+              Séries: 1x 15-20, 1x 10-15 
+              1x 8-12, 1x 6-10
+              ⏱️  1–2 min
+               `,
 
-            ` ⚪ Remada Curvada Pronada
+            `⚪ Panturrilha sentada
 
-            Pico de contração de 2 seg
-            Séries: 3x 8-12
-            ⏱️ 1 min `,
+             Progressão de carga e Pico de contração de 2 seg 
+             Séries: 1x 10–15   1x 8–12   1x 6–10
+             ⏱️  1 min`,
 
-            ` ⚪ Pulley Frente Pegada Aberta
+            `⚪ Cadeira Flexora
 
-            Pico de contração de 2 seg
-            Séries: 3x 8-12
-            ⏱️ 1 min               `,
+              Pico de contração de 2 seg
+              Séries: 4x 8-12
+              ⏱️ 60 seg
+              `,
+            `⚪ Flexora em pé
 
-               ` ⚪ Rosca Direta na Barra em pé
-               
-                Progressão de carga e Drop
-                Séries: 1x 10-15, 1x 8-12, 
-                1x 6-10 + 2 Drop
-                ⏱️ 1-2 min`, 
+              Séries: 3x 8–12
+              ⏱️ 45 seg`,
 
-               ` ⚪ Rosca Scott (máquina ou cross)
+            `⚪ Cadeira extenssora
 
-                Séries: 3x 8-12
-                ⏱️ 1 min`,
-
-              ` ⚪ Rosca Direta com Halteres no Banco 45̣º
-
-              Pico de contração
-              Séries: 3x 8-12
+            Progressão de carga, Pico de contração de 2 seg e Drop
+              Séries: 2x 15–20 ⏱️ 30 seg *Pc 2 seg
+              2x 10-15
+              1x 8-12 + 2 Drop
               ⏱️ 1 min`,
 
-               ` ⚪ Rosca Martelo Corda
+            `⚪ Agachamento Livre/Smith
 
-                Séries: 3x 8-12
-                ⏱️ 1 min`,
+            Progressão de carga
+              Séries: 1x 10-15, 1x 10–12, 
+              1x 6–10
+              ⏱️ 2-3 min
+              `,
 
-               ` ⚪ Triceps testa no banco 30º
+            `⚪ Abdutora
 
-               Progressão de carga e Repetições parciais apos falha
-
-                Séries: 1x 10-15, 1x 8-12, 
-                1x 6-10 + 2 Drop
-                ⏱️ 1-2 min`,
-
-                ` ⚪ Tríceps corda
-
-                Pico de contração de 2 seg
-                Séries: 4x 8-12
-                ⏱️ 1 min`,
-
-                `⚪ Tríceps Francês no Cabo
-
-                Series: 3x 8-12
-                ⏱️ 1 min`,
-              ],
+              Séries: 4x 8–12
+              ⏱️ 60 seg`,
+          ],
         },
       ];
 
@@ -411,11 +371,15 @@
       function formatTime(seconds) {
         const mins = Math.floor(seconds / 60);
         const secs = seconds % 60;
-        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        return `${mins.toString().padStart(2, "0")}:${secs
+          .toString()
+          .padStart(2, "0")}`;
       }
 
       function startPauseTimer() {
-        const button = document.querySelector('button[onclick="startPauseTimer()"]');
+        const button = document.querySelector(
+          'button[onclick="startPauseTimer()"]'
+        );
         if (isTimerRunning) {
           clearInterval(timerInterval);
           isTimerRunning = false;
@@ -425,7 +389,8 @@
           button.textContent = "Pausar";
           timerInterval = setInterval(() => {
             tempoTotal++;
-            document.getElementById("tempo").textContent = formatTime(tempoTotal);
+            document.getElementById("tempo").textContent =
+              formatTime(tempoTotal);
           }, 1000);
         }
       }
@@ -435,14 +400,18 @@
         isTimerRunning = false;
         tempoTotal = 0;
         document.getElementById("tempo").textContent = formatTime(tempoTotal);
-        document.querySelector('button[onclick="startPauseTimer()"]').textContent = "Iniciar";
+        document.querySelector(
+          'button[onclick="startPauseTimer()"]'
+        ).textContent = "Iniciar";
       }
 
       function toggleTimer() {
         const timer = document.getElementById("timer");
         timer.classList.toggle("retraido");
         const toggleButton = timer.querySelector(".timer-toggle");
-        toggleButton.textContent = timer.classList.contains("retraido") ? "⏱️◄":"⏱️►" ;
+        toggleButton.textContent = timer.classList.contains("retraido")
+          ? "⏱️◄"
+          : "⏱️►";
       }
 
       renderTreinos();
