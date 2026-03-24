@@ -191,7 +191,7 @@ li.feito {
         background: #2e2d2d;
     }
 p {
-    font-size: 80px;
+    font-size: 10px;
 }
     img {
         width: 20px;
@@ -317,6 +317,6 @@ p {
         text-align: center;
     }
     p {
-    font-size: 80px;
+    font-size: 10px;
 }
 }
