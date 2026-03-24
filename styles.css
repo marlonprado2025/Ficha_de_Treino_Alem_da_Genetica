@@ -81,10 +81,15 @@ p {
 h2 {
     color: #e99629;
     margin-bottom: 0.5rem;
-    font-weight: 900;
-    font-size: 20px;
+    font-weight:790;
+    font-size: 18px;
 }
-
+p{
+     color: #d9e929;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 15px;
+}
 ul {
     list-style: none;
     margin-bottom: 1rem;
@@ -193,13 +198,14 @@ li.feito {
 
     .tabs {
         justify-content: center;
-        gap: 5px;
+        gap: 4px;
     }
 
     .tab {
-        height: 30px;
+        height: 40px;
         padding: 0.2rem 0.4rem;
         font-size: 0.9rem;
+        font-weight: 600;
         flex: 1;
         min-width: 50px;
         text-align: center;

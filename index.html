@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -13,10 +13,10 @@
     </h1>
 
     <div class="tabs">
-      <button class="tab active" onclick="selectTreino(0)">Treino A</button>
-      <button class="tab" onclick="selectTreino(1)">Treino B</button>
-      <button class="tab" onclick="selectTreino(2)">Treino C</button>
-      <button class="tab" onclick="selectTreino(3)">Descanço</button>
+      <button class="tab active" onclick="selectTreino(0)">Treino PUSH</button>
+      <button class="tab" onclick="selectTreino(1)">Treino PULL</button>
+      <button class="tab" onclick="selectTreino(2)">Treino LEGS</button>
+      <button class="tab" onclick="selectTreino(3)">Descanso</button>
       <button class="tab" onclick="selectTreino(4)">Treino Upper</button>
       <button class="tab" onclick="selectTreino(5)">Treino Lower</button>
     </div>
@@ -35,7 +35,8 @@
     <script>
       const ficha = [
         {
-          titulo: "Treino A 1 ",
+          titulo: "🔴DIA 1 – PUSH (peito,ombro,tríceps)🏋️‍♂️",
+          descricao: "🎯 Foco: força + hipertrofia",
           exercicios: [
             `⚪ Abdominal Supra na prancha
 
@@ -111,7 +112,8 @@
           ],
         },
         {
-          titulo: "Treino B 1 ",
+          titulo: "🔵 DIA 2 – PULL (costas, bíceps) 🧲 ",
+          descricao: "🎯Foco: densidade de costas + controle",
           exercicios: [
             `⚪ Lombar no banco romano
 
@@ -173,90 +175,87 @@
           ],
         },
         {
-          titulo: " Descanço ",
+          titulo: " 🟢 DIA 3 – LEGS (pernas) 🦵 ",
+          descricao: "🎯 Foco: base pesada",
+          exercicios: [
+            ` ⚪ Abdominal infra na torre
+
+            Séries: 3x RM (máximo de repetições possíveis)
+            ⏱️  45 seg `,
+          ],
         },
         {
-          titulo: "Treino A 2",
+          titulo: "⚫ DIA 4 – ⏱️ Descanso",
+          descricao: "👉 Aqui entra o diferencial💡",
           exercicios: [
             `⚪ Voador
 
-            Progressão de carga e Drop
-            Séries: 1x 15-20, 1x 10-15,
-            1x 8-12, 1x 6-10 + 2 Drop
-            ⏱️ 1 min
              `,
 
             `⚪ Supino Declinado
 
-            Progressão de carga
-            Séries: 1x 15-20, 1x 10-15, 1x 8-12, 
-            1x 6-10 
-            ⏱️ 2 min
-            `,
-
-            `⚪ Serrote
-
-            Progressão de carga 
-            Séries: 1x 15-20, 1x 10-15, 
-            1x 8-12
-            1x 6-10 
-            ⏱️ 2-3 min
              `,
-
-            `⚪  Pulley frente aberto
-
-            Progressão de carga e Pico de contração de 2 seg
-            Séries: 1x 10-15, 1x 8-12, 
-            1x 6-10 
-            ⏱️ 1 min
-             `,
-
-            `⚪ Elevação Frontal corda na polia
-
-           Progressão de carga e Drop
-            Séries: 1x 10-15, 1x 8-12, 
-            1x 6-10 + 2 Drop
-            ⏱️ 1 min
-             `,
-
-            `⚪  Crucifixo invertido/Voador Inverso
-          
-            Series: 4x 8-12
-            ⏱️ 1 min
-             `,
-
-            `⚪ Tríceps frances no cabo
-
-            Progressão de carga e Drop
-            Séries: 3x 8-12
-            ⏱️ 45 seg
-              `,
-
-            `⚪ Tríceps Testa
-            
-             Séries: *(3x 8-12) 
-             ⏱️ 1 min `,
-
-            `⚪ Tríceps corda
-            
-             Séries: *(3x 8-12) 
-             ⏱️ 1 min `,
-
-            ` ⚪ Bíceps corda
-
-            Progressão de carga e Drop
-            Séries: 3x 8-12
-            ⏱️ 45 seg
-              `,
-
-            `⚪  Scott máquina
-            
-             Séries: *(3x 8-12) 
-             ⏱️ 1 min `,
           ],
         },
         {
-          titulo: "Treino B 2",
+          titulo: "🟡 DIA 5 – UPPER (superior) ",
+          descricao: "🎯Foco: volume + conexão mente-músculo",
+          exercicios: [
+            ` ⚪ Abdominal infra na torre
+
+            Séries: 3x RM (máximo de repetições possíveis)
+            ⏱️  45 seg `,
+
+            `⚪ Panturrilha em pé
+
+            Progressão de carga
+              Séries: 1x 15-20, 1x 10-15 
+              1x 8-12, 1x 6-10
+              ⏱️  1–2 min
+               `,
+
+            `⚪ Panturrilha sentada
+
+             Progressão de carga e Pico de contração de 2 seg 
+             Séries: 1x 10–15   1x 8–12   1x 6–10
+             ⏱️  1 min`,
+
+            `⚪ Cadeira Flexora
+
+              Pico de contração de 2 seg
+              Séries: 4x 8-12
+              ⏱️ 60 seg
+              `,
+            `⚪ Flexora em pé
+
+              Séries: 3x 8–12
+              ⏱️ 45 seg`,
+
+            `⚪ Cadeira extenssora
+
+            Progressão de carga, Pico de contração de 2 seg e Drop
+              Séries: 2x 15–20 ⏱️ 30 seg *Pc 2 seg
+              2x 10-15
+              1x 8-12 + 2 Drop
+              ⏱️ 1 min`,
+
+            `⚪ Agachamento Livre/Smith
+
+            Progressão de carga
+              Séries: 1x 10-15, 1x 10–12, 
+              1x 6–10
+              ⏱️ 2-3 min
+              `,
+
+            `⚪ Abdutora
+
+              Séries: 4x 8–12
+              ⏱️ 60 seg`,
+          ],
+        },
+        {
+          titulo: "🟣 DIA 6 – LOWER (inferior)",
+          descricao: "🎯Foco: posterior + glúteo",
           exercicios: [
             ` ⚪ Abdominal infra na torre
 
@@ -325,6 +324,8 @@
           card.className = "card" + (index === diaAtual ? " active" : "");
           const titulo = document.createElement("h2");
           titulo.innerText = dia.titulo;
+          const descricao = document.createElement("p");
+          descricao.innerText = dia.descricao || "";
           const ul = document.createElement("ul");
           dia.exercicios.forEach((ex, idx) => {
             const li = document.createElement("li");
@@ -337,6 +338,7 @@
             ul.appendChild(li);
           });
           card.appendChild(titulo);
+          card.appendChild(descricao);
           card.appendChild(ul);
           treinosEl.appendChild(card);
         });
@@ -379,7 +381,7 @@
 
       function startPauseTimer() {
         const button = document.querySelector(
-          'button[onclick="startPauseTimer()"]'
+          'button[onclick="startPauseTimer()"]',
         );
         if (isTimerRunning) {
           clearInterval(timerInterval);
@@ -402,7 +404,7 @@
         tempoTotal = 0;
         document.getElementById("tempo").textContent = formatTime(tempoTotal);
         document.querySelector(
-          'button[onclick="startPauseTimer()"]'
+          'button[onclick="startPauseTimer()"]',
         ).textContent = "Iniciar";
       }
 
