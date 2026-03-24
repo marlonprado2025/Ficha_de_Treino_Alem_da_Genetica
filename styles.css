@@ -190,7 +190,9 @@ li.feito {
         border-radius: 4px;
         background: #2e2d2d;
     }
-
+p {
+    font-size: 80px;
+}
     img {
         width: 20px;
         height: 20px;
@@ -314,4 +316,7 @@ li.feito {
         font-weight: 700;
         text-align: center;
     }
+    p {
+    font-size: 80px;
+}
 }
